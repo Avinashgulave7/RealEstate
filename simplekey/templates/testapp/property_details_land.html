@@ -1,0 +1,413 @@
+<!doctype html>
+{%load static %}
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Real state</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png'%}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/gallery.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css'%}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div class="header-top_area d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-md-5 ">
+                        <div class="header_left">
+                            <p>Welcome to Conbusi consulting service</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-md-7">
+                        <div class="header_right d-flex">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> 1601-609 6780</a></li>
+                                </ul>
+                            </div>
+                            <div class="social_media_links">
+                                <a href="https://www.twitter.com/">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.facebook.com/">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://www.google.com/">
+                                    <i class="fab fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sticky-header" class="main-header-area">
+            <div class="container">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="{% static 'img/logo.png'%}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a  href="/">home</a></li>
+                                        <li><a  href="/about">About </a></li>
+                                        <li><a href="">Property<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="/buy">Buy</a></li>
+                                                <li><a href="/rent">Rent</a></li>
+                                                <li><a href="/Property_Land">Land</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/contact">Contact</a></li>
+
+                                            {% if user.is_authenticated %}
+                                            <li><a href="">Hello,{{user.first_name}}</a></li>
+
+
+                                            <li><a href="/logout">Logout</a></li>
+                                            {% else %}
+
+                                            <li><a href="/accounts/login">Login</a></li>
+                                            {% endif %}
+
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="Appointment">
+                                <div class="search_btn">
+                                    <a href="#">
+                                        <i class="ti-search"></i>
+                                    </a>
+                                </div>
+                                <div class="book_btn d-none d-lg-block">
+                                    <a  href="/add_property">My Property</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+
+<!-- bradcam_area  -->
+<div class="property_details_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-md-8 col-lg-6">
+                <div class="comfortable_apartment">
+                    <h4>{{i.Owner_name}}</h4>
+                    <p> <img src="{% static 'img/svg_icon/location.svg'%}" alt=""> {{i.Address}},{{i.State}},{{i.Pincode}}</p>
+                    <div class="quality_quantity d-flex">
+                        <div class="single_quantity">
+                            <img src="{% static 'img/svg_icon/color_box.svg'%}" alt="">
+                            <span>{{i.Area}} Sqft</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-4 col-lg-6">
+                <div class="prise_quantity">
+                    <h4>&#8377 {{i.Price}}</h4>
+
+                    <a href="#">+91 {{i.Contact}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!--/ bradcam_area  -->
+
+    <!-- details  -->
+<div class="property_details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="property_banner">
+                    <div class="property_banner_active owl-carousel" style="text-align:center">
+                        <div class="single_property" >
+                            <img class="img_resize" src="{{ i.Img1.url }}" alt="" >
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="main-panel w-100" style="text-align:center">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-offset-2 grid-margin stretch-cards">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="h2">Description</h4>
+                                    <div class="border-bottom">
+                                        {{i.Description}}
+                                    </div>
+
+                                    <h2 class="h4 text-black mt-4 mb-4">Gallery</h2>
+                                    <div class="row">
+                                        {% for a in images %}
+                                        <div class="column flex-basis" style="text-align: center;">
+                                            <img src="{{ a.image.url }}" onclick="openModal();currentSlide(1)" class="thumbnail hover-shadow cursor">
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+
+                                    <div id="myModal" class="modal">
+                                        <span class="close cursor" onclick="closeModal()">&times;</span>
+                                        <div class="modal-content">
+                                            {% for a in images %}
+                                            <div class="mySlides">
+                                                <div class="numbertext"></div>
+
+                                                <img class="slide-img" src="{{ a.image.url }}">
+
+                                            </div>
+                                            {% endfor %}
+
+
+
+                                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                <div class="details_info">
+                    <br>
+                </div>
+                <div class="contact_field">
+                    <h3>Contact Our Agent</h3>
+                    <form action="" method="post">
+                        {% csrf_token%}
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6">
+                                <input type="text" placeholder="Your Name" name="name" value="{{user.first_name}}" readonly>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                                <input type="email" placeholder="Email" name="email"  value="{{user.email}}" readonly>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                                <input type="number" placeholder="Phone no." name="mob">
+                            </div>
+                            <div class="col">
+                                <input id="today" type="date" name="date" readonly>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <input type="text"  name="p_name" value="{{i.Owner_name}},{{i.Address}},{{i.State}},{{i.Pincode}}" readonly>
+                            </div>
+                            <div class="col-xl-12">
+                                <textarea name="msg" id="" cols="30" rows="10" placeholder="Message"  ></textarea>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="send_btn">
+                                    <input type="submit" class="send_btn" value="Send Email">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+    </script>
+
+   <script>
+       let today = new Date().toISOString().substr(0, 10);
+       document.querySelector("#today").value = today;
+       document.querySelector("#today2").valueAsDate = new Date();
+   </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /details  -->
+{% if messages %}
+   <script>
+    {% for message in messages %}
+        alert("{{ message }}");
+    {% endfor %}
+   </script>
+{% endif %}
+
+
+     <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'img/footer_logo.png'%}" alt="">
+                                </a>
+                            </div>
+                            <p>
+                                    <a href="#">conbusi@support.com</a> <br>
+                                    +91 9087676566 <br>
+                                    600/D, Green road, Pune
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Quick Link
+                            </h3>
+                            <ul>
+                                <li><a href="/buy">Buy</a></li>
+                                <li><a href="/rent"> Rent</a></li>
+                                <li><a href="/Property_Land">Land</a></li>
+                                <li><a href="/signup">Sign UP</a></li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+
+                                <li><a href="/contact"> Contact</a></li>
+                                <li><a href="/property">Property</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                    <center><h3 class="footer_title">
+                                            Map
+                                    </h3></center>
+
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.6810192039!2d73.7228792197633!3d18.524890421057442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1584097814186!5m2!1sen!2sin" width="500" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--/ footer end  -->
+
+    <!-- link that opens popup -->
+    <!-- JS here -->
+    <script src="{% static 'js/gallery.js'%}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js'%}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js'%}"></script>
+    <script src="{% static 'js/ajax-form.js'%}"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js'%}"></script>
+    <script src="{% static 'js/scrollIt.js'%}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/nice-select.min.js'%}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+
+
+
+    <!--contact js-->
+    <script src="{% static 'js/contact.js'%}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js'%}"></script>
+    <script src="{% static 'js/jquery.form.js'%}"></script>
+    <script src="{% static 'js/jquery.validate.min.js'%}"></script>
+    <script src="{% static 'js/mail-script.js'%}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>

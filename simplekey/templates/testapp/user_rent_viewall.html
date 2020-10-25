@@ -1,0 +1,655 @@
+<!doctype html>
+{% load static%}
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Real state</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png'%}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.addons.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+
+
+
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div class="header-top_area d-none d-lg-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-md-5 ">
+                            <div class="header_left">
+                                <p>Welcome to Conbusi consulting service</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-md-7">
+                            <div class="header_right d-flex">
+                                    <div class="short_contact_list">
+                                            <ul>
+                                                <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
+                                                <li><a href="#"> <i class="fa fa-phone"></i>+91 9087676566</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="social_media_links">
+                                            <a href="https://www.twitter.com/">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                            <a href="https://www.facebook.com/">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                            <a href="https://www.google.com/">
+                                                <i class="fab fa-google-plus-g"></i>
+                                            </a>
+                                        </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="{% static 'img/logo.png'%}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a class="nounderline" href="/">home</a></li>
+                                            <li><a class="active nounderline" href="/add_property">Dashboard</a></li>
+
+                                        {% if user.is_authenticated %}
+                                            <li><a href="">Hello,{{user.first_name}}</a></li>
+
+
+
+                                            <li><a href="/logout">Logout</a></li>
+                                            {% else %}
+
+                                            <li><a href="/accounts/login">Login</a></li>
+                                            {% endif %}
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+    <!--Slider-->
+             <div class="bradcam_area bradcam_bg_1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="bradcam_text text-center">
+                                    <h3>Rent View</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!---Slider End-->
+
+    <!-- ================ contact section start ================= -->
+<div class="main-panel">
+          <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="popular_property">
+        <div class="container">
+<div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12 d-flex align-items-stretch grid-margin">
+                <div class="row flex-grow">
+                    <div class="col-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post">
+                                    <div class="row col-lg-12">
+<div class="container">
+            <form method="post">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="{{ i.Img1.url }}" height="200px" width="200px" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h1 class="card-title">
+                                <a href="/add_property" type="button" class="btn btn-danger btn-md" style="float:right;">
+                                  <span class="fas fa-arrow-left">Back</span>
+                                </a>
+                            </h1>
+
+                                    <h3>
+                                        {{i.Owner_name}}
+                                    </h3>
+                                    <h4>
+                                        {{i.Contact}}
+                                    </h4>
+                                    <p class="proile-rating">Address : <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Info</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Gallary</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active bold" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Property Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Property_name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Property</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Property}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Type</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Type}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Rooms</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Rooms}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Baths</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Baths}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Area</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Area}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Water</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Water}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Playground</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Playground}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Price</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Price}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Description</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Description}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Gym</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Gym}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hospital</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Hospital}}</p>
+                                            </div>
+                                        </div>
+                                       <div class="row">
+                                            <div class="col-md-6">
+                                                <label>School</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.School}}</p>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Mall</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Mall}}</p>
+                                            </div>
+                                        </div>
+                                      <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Address}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Electricity</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Electricity}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Parking</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Parking}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Club House</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Club}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Fire Fighting System</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Fire}}</p>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Lift</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Lift}}</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Wi-Fi connectivity</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Wifi}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Security Services</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Security}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Temple and Religious place</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Temple}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Swimming pool</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Poll}}</p>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Indoor/outdoor Living</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Living}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hotel</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Hotel}}</p>
+                                            </div>
+                                        </div>
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Cinema Hall</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Cinema}}</p>
+                                            </div>
+                                        </div>
+
+
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Publish Date</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{i.Date}}</p>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                                      <div class="row">
+
+
+                                            {% for a in images %}
+                                            <div class="col-md-6">
+                                                <p><img src="{{ a.image.url }}" height="150px" width="150px" ></p>
+                                            </div>
+                                          {% endfor %}
+
+                                        </div>
+
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+</div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+            </div>
+
+
+
+
+
+
+
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+
+    <!-- ================ contact section end ================= -->
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'img/footer_logo.png'%}" alt="">
+                                </a>
+                            </div>
+                            <p>
+                                    <a href="#">conbusi@support.com</a> <br>
+                                    +91 9087676566 <br>
+                                    600/D, Green road, Pune
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Quick Link
+                            </h3>
+                            <ul>
+                                <li><a href="/buy">Buy</a></li>
+                                <li><a href="/rent"> Rent</a></li>
+                                <li><a href="/Property_Land">Land</a></li>
+                                <li><a href="/signup">Sign UP</a></li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+
+                                <li><a href="/contact"> Contact</a></li>
+                                <li><a href="/property">Property</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                    <center><h3 class="footer_title">
+                                            Map
+                                    </h3></center>
+
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.6810192039!2d73.7228792197633!3d18.524890421057442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1584097814186!5m2!1sen!2sin" width="500" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--/ footer end  -->
+
+    <!-- link that opens popup -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+    <!-- JS here -->
+     <script src="{% static 'js/vendor/modernizr-3.5.0.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js'%}"></script>
+    <script src="{% static 'js/ajax-form.js'%}"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js'%}"></script>
+    <script src="{% static 'js/scrollIt.js'%}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/validate.js'%}"></script>
+    <script src="{% static 'js/collapsible.js'%}"></script>
+
+
+
+    <!--contact js-->
+        <script src="{% static 'js/contact.js'%}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js'%}"></script>
+        <script src="{% static 'js/jquery.form.js'%}"></script>
+        <script src="{% static 'js/jquery.validate.min.js'%}"></script>
+        <script src="{% static 'js/mail-script.js'%}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script src="{% static 'js/main.js'%}"></script>
+        <!-- plugins:js -->
+        <script src="{% static 'assets/vendors/js/vendor.bundle.base.js'%}"></script>
+         <script src="{% static 'assets/vendors/js/vendor.bundle.addons.js'%}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+
+    <!-- Custom js for this page-->
+    <script src="{% static 'assets/js/demo_1/dashboard.js'%}"></script>
+    <!-- End custom js for this page-->
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+
+</body>
+</html>

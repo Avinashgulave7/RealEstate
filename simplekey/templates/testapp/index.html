@@ -1,0 +1,367 @@
+{% extends 'testapp/base.html' %}
+
+{% block content %}
+{% load static%}
+
+<!-----Sort------->
+        <div class="row" style="padding-top:70px">
+          <div class="col-md-12">
+            <div class="view-options bg-gray py-3 px-3 d-md-flex align-items-center">
+              <div class="mr-auto">
+                <a href="index.html" class="icon-view view-module active"><span class="icon-view_module"></span></a>
+                <a href="view-list.html" class="icon-view view-list"><span class="icon-view_list"></span></a>
+
+              </div>
+              <div class="ml-auto d-flex align-items-center">
+                <div style="font-size:15px">
+                  <a href="/buy" class="view-list px-3 border-right active">Buy</a>
+                  <a href="/rent" class="view-list px-3 border-right">Rent</a>
+                  <a href="/Property_Land" class="view-list px-3">Land</a>
+                </div>
+
+
+                <div class="select-wrap">
+                  <span class="icon icon-arrow_drop_down"></span>
+                  <select class="nice-select form-control form-control-sm d-block rounded-0" onchange="location = this.value;">
+                    <option value="">Sort by</option>
+                    <option value="/price_sort_low_to_high">Price:Low-High</option>
+                    <option value="/price_sort_high_to_low">Price:High-Low</option>
+                    <option value="/area_sort_low_to_high">SQ.FT:Low-High</option>
+                    <option value="/area_sort_high_to_low">SQ.FT:High-Low</option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-----Sort End----->
+
+
+<!-- popular_property  -->
+    <div class="popular_property">
+        <div class="container">
+            <div class="row" style = "pointer-events: none">
+                <div class="col-xl-12">
+                    <div class="section_title mb-40 text-center">
+                        <h3>Popular Properties</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                {% for i in buy %}
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_property">
+                        <div class="property_thumb">
+                            <div class="property_tag red">
+                                    For Buy
+                            </div>
+                            <a href="/property_details/{{i.id}}"><center>{{i.Property_name}}</center><img  src="{{ i.Img1.url }}" alt=""></a>
+                        </div>
+                        <div class="property_content">
+                            <div class="main_pro">
+                                    <h3><a href="/property_details/{{i.id}}">{{i.Property_name}}</a></h3>
+                                    <div class="mark_pro">
+                                        <img src="{%static 'img/svg_icon/location.svg'%}" alt="">
+                                        <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span>
+                                    </div>
+                                    <span class="amount">From &#8377 {{i.Price}}</span>
+                            </div>
+                        </div>
+                        <div class="footer_pro">
+                                <ul>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/square.svg'%}" alt="">
+                                            <span>{{i.Area}} Sqft</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/bed.svg'%}" alt="">
+                                            <span>{{i.Rooms}} Rooms</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/bath.svg'%}" alt="">
+                                            <span>{{i.Baths}} Bath</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+            {% for i in rent %}
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_property">
+                        <div class="property_thumb">
+                            <div class="property_tag green">
+                                    For Rent
+                            </div>
+                            <a href="/property_details_rent/{{i.id}}"><center>{{i.Property_name}}</center><img  src="{{ i.Img1.url }}" alt=""></a>
+                        </div>
+                        <div class="property_content">
+                            <div class="main_pro">
+                                    <h3><a href="/property_details_rent/{{i.id}}">{{i.Property_name}}</a></h3>
+                                    <div class="mark_pro">
+                                        <img src="{%static 'img/svg_icon/location.svg'%}" alt="">
+                                        <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span>
+                                    </div>
+                                    <span class="amount">From &#8377 {{i.Price}}</span>
+                            </div>
+                        </div>
+                        <div class="footer_pro">
+                                <ul>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/square.svg'%}" alt="">
+                                            <span>{{i.Area}} Sqft</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/bed.svg'%}" alt="">
+                                            <span>{{i.Rooms}} Rooms</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{%static 'img/svg_icon/bath.svg'%}" alt="">
+                                            <span>{{i.Baths}} Bath</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+            {% for i in land %}
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_property">
+                        <div class="property_thumb">
+                            <div class="property_tag blue">
+                                    For Buy
+                            </div>
+                            <a href="/property_details_land/{{i.id}}"><center>{{i.Owner_name}}</center><img  src="{{ i.Img1.url }}" alt=""></a>
+                        </div>
+                        <div class="property_content">
+                            <div class="main_pro">
+                                    <h3><a href="/property_details_land/{{i.id}}">{{i.Property_type}}</a></h3>
+                                    <div class="mark_pro">
+                                        <img src="{% static 'img/svg_icon/location.svg'%}" alt="">
+                                        <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span>
+                                    </div>
+                                    <span class="amount">&#8377 {{i.Price}}</span>
+                            </div>
+                        </div>
+                        <div class="footer_pro">
+                                <ul>
+                                    <li>
+                                        <div class="single_info_doc">
+                                            <img src="{% static 'img/svg_icon/square.svg'%}" alt="">
+
+                                            <span>Total Price:&#8377 {{i.Price}}</span>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="more_property_btn text-center">
+                        <a href="/property" class="boxed-btn3-line">More Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- /popular_property  -->
+ {% if messages %}
+   <script>
+    {% for message in messages %}
+        alert("{{ message }}");
+    {% endfor %}
+   </script>
+{% endif %}
+
+
+    <!-- home_details  -->
+
+    <div class="home_details">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="home_details_active owl-carousel">
+                        {% for i in buy %}
+                        <div class="single_details">
+                            <div class="row">
+
+                                <div class="col-xl-6 col-md-6">
+                                        <div class="modern_home_info">
+                                                <div class="modern_home_info_inner">
+                                                    <span class="for_sale">
+                                                        For Buy
+                                                    </span>
+                                                    <div class="info_header">
+                                                            <h3>{{i.Property_name}}</h3>
+                                                            <div class="popular_pro d-flex">
+                                                                <img src="{% static 'img/svg_icon/location.svg'%}" alt="">
+                                                                <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="info_content">
+                                                        <ul>
+                                                            <li> <img src="{% static 'img/svg_icon/square.svg'%}" alt=""> <span>{{i.Area}} Sqft</span>  </li>
+                                                            <li> <img src="{% static 'img/svg_icon/bed.svg'%}" alt=""> <span>{{i.Rooms}} Rooms</span> </li>
+                                                            <li> <img src="{% static 'img/svg_icon/bath.svg'%}" alt=""> <span>{{i.Baths}} Bath</span> </li>
+                                                        </ul>
+                                                        <p>{{i.Description}}</p>
+                                                        <div class="prise_view_details d-flex justify-content-between align-items-center">
+                                                            <span>&#8377 {{i.Price}}</span>
+                                                            <a class="boxed-btn3-line" href="/property_details/{{i.id}}">View Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                        {% for i in rent %}
+                        <div class="single_details">
+                            <div class="row">
+
+                                <div class="col-xl-6 col-md-6">
+                                        <div class="modern_home_info">
+                                                <div class="modern_home_info_inner">
+                                                    <span class="for_sale">
+                                                        For Rent
+                                                    </span>
+                                                    <div class="info_header">
+                                                            <h3>{{i.Property_name}}</h3>
+                                                            <div class="popular_pro d-flex">
+                                                                <img src="{% static 'img/svg_icon/location.svg'%}" alt="">
+                                                                <span>{{i.Address}},{{i.State}},{{i.Pincode}}</span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="info_content">
+                                                        <ul>
+                                                            <li> <img src="{% static 'img/svg_icon/square.svg'%}" alt=""> <span>{{i.Area}} Sqft</span>  </li>
+                                                            <li> <img src="{% static 'img/svg_icon/bed.svg'%}" alt=""> <span>{{i.Rooms}} Rooms</span> </li>
+                                                            <li> <img src="{% static 'img/svg_icon/bath.svg'%}" alt=""> <span>{{i.Baths}} Bath</span> </li>
+                                                        </ul>
+                                                        <p>{{i.Description}}</p>
+                                                        <div class="prise_view_details d-flex justify-content-between align-items-center">
+                                                            <span>&#8377 {{i.Price}}</span>
+                                                            <a class="boxed-btn3-line" href="/property_details_rent/{{i.id}}">View Details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /home_details  -->
+
+    <!-- team_area  -->
+    <div class="team_area">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-xl-12">
+                                <div class="section_title mb-40 text-center">
+                                    <h3>
+                                            Our Agents
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for i in agent %}
+                            <div class="col-xl-3 col-lg-3 col-md-6">
+                                <div class="single_team">
+                                    <div class="team_thumb">
+                                        <img src="{{ i.Img1.url }}" alt="">
+                                        <div class="social_link">
+                                                <ul>
+                                                    <li><a href="https://www.facebook.com/">
+                                                            <i class="fa fa-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://www.twitter.com/">
+                                                            <i class="fa fa-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://www.instagram.com/">
+                                                            <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                        </div>
+                                    </div>
+                                    <div class="team_info text-center">
+                                        <h3>{{i.Agent_name}}</h3>
+                                        <p>{{i.Agent_type}}</p>
+
+                                        <h6>{{i.Contact}}</h6>
+                                        <h7>{{i.Email}}</h7>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+            </div>
+        </div>
+    <!-- /team_area  -->
+
+
+
+
+{% endblock %}

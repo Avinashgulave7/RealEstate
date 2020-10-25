@@ -1,0 +1,26 @@
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+<div class="paginator">
+    <span>
+    {% if page.has_previous %}
+    <a class="btn btn-primary" href="?page={{page.previous_page_number}}">Previous</a>
+    {%endif %}
+    </span>
+
+    {% if page.number %}
+   <span class="current">
+       <font color="red"> page </font>{{page.number}} <font color="red"> of </font> {{page.paginator.num_pages}}
+   </span>
+    {% endif %}
+
+    <span>
+    {% if page.has_next %}
+    <a class="btn btn-primary" href="?page={{page.next_page_number}}">Next</a>
+    {%endif %}
+    </span>
+
+</div>    </ul>
+
+</nav>
